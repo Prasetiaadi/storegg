@@ -1,20 +1,29 @@
-/* eslint-disable jsx-a11y/alt-text */
-import cx from 'classnames'
+
+import cx from 'classnames';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface MenuItemProps {
   title: string;
-  icon: 'icon-menu-overview' | 'icon-menu-transaction' | 'icon-menu-settings' | 'icon-menu-reward' | 'icon-menu-card' | 'icon-menu-message' | 'icon-menu-logout'
+  icon:
+    | 'icon-menu-overview'
+    | 'icon-menu-transaction'
+    | 'icon-menu-settings'
+    | 'icon-menu-reward'
+    | 'icon-menu-card'
+    | 'icon-menu-message'
+    | 'icon-menu-logout';
   active?: boolean;
+  href?: string;
 }
 
 export default function MenuItem(props: Partial<MenuItemProps>) {
-  const { title, icon, active } = props;
+  const { title, icon, active, href = '/' } = props;
   const classItem = cx({
-    'item': true,
+    item: true,
     'mb-30': true,
     active,
-  })
+  });
 
   return (
     <div className={classItem}>
@@ -22,9 +31,9 @@ export default function MenuItem(props: Partial<MenuItemProps>) {
         <Image src={`/icon/${icon}.svg`} width={25} height={25} />
       </div>
       <p className="item-title m-0">
-        <a href="" className="text-lg text-decoration-none">
-          {title}
-        </a>
+        <Link href={href}>
+          <a className="text-lg text-decoration-none">{title}</a>
+        </Link>
       </p>
     </div>
   );

@@ -1,7 +1,3 @@
-/* eslint-disable @next/next/no-sync-scripts */
-/* eslint-disable @next/next/no-page-custom-font */
-/* eslint-disable @next/next/no-head-element */
-
 import "../styles/utilities.css"
 import "../styles/homepage.css"
 import "../styles/detail.css"
